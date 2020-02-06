@@ -4,6 +4,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from './core/material.module';
 
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { environment } from '../environments/environment';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainTemplateComponent } from './template/main-template/main-template.component';
@@ -13,6 +17,7 @@ import { HomeComponent } from './view/home/home.component';
 import { LoginComponent } from './view/login/login.component';
 import { MainMenuComponent } from './template/main-menu/main-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthenticationService } from './sevices/authentication.service';
 
 @NgModule({
   declarations: [
@@ -29,9 +34,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
