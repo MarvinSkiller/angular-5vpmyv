@@ -3,7 +3,12 @@
     <app-main-menu></app-main-menu>
   </mat-drawer>
   <mat-drawer-content>
-    <app-header (click)="leftMenu.toggle()"></app-header>
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon (click)="leftMenu.toggle()">menu</mat-icon>
+      </button>
+      <app-header></app-header>
+    </mat-toolbar-row>
     <router-outlet></router-outlet>
     <app-footer></app-footer>
   </mat-drawer-content>
