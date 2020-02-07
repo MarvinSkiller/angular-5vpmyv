@@ -5,6 +5,7 @@ import { LoginComponent } from './view/login/login.component';
 import { HomeComponent } from './view/home/home.component';
 import { MainTemplateComponent } from './template/main-template/main-template.component';
 
+import { AuthGuard } from './core/auth.guard';
 
 const routes: Routes = [
   {
@@ -23,7 +24,8 @@ const routes: Routes = [
         path: 'home',
         component: HomeComponent
       }
-    ]
+    ],
+    canActivate: [AuthGuard]
   }
 ];
 
