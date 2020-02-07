@@ -18,6 +18,7 @@ import { LoginComponent } from './view/login/login.component';
 import { MainMenuComponent } from './template/main-menu/main-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthenticationService } from './sevices/authentication.service';
+import { AuthGuard } from './core/auth.guard';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { AuthenticationService } from './sevices/authentication.service';
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

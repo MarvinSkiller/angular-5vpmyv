@@ -27,16 +27,17 @@ export class AuthenticationService {
   }
 
   /* Sign in */
-  SignIn(email: string, password: string) {
+  SignIn(email: string, password: string): Observable<firebase.User> {
     this.angularFireAuth
       .auth
       .signInWithEmailAndPassword(email, password)
       .then(res => {
-        console.log('Something is wrong:',res.user);
+        return res.user;
       })
       .catch(err => {
-        console.log('Something is wrong:',err.message);
+        return err;
       });
+      return;
   }
 
   /* Sign out */
@@ -44,6 +45,11 @@ export class AuthenticationService {
     this.angularFireAuth
       .auth
       .signOut();
-  }  
+  }
+
+  // Returns true if user is logged in
+  get authenticated(): boolean {
+    return this.angularFireAuth.authState !== null;
+  }
 
 }

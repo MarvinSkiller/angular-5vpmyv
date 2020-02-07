@@ -26,13 +26,14 @@ export class LoginComponent implements OnInit {
 
   submit() {
     if (this.form.valid) {
-      this.authenticationService.SignIn(this.form.value.username, this.form.value.password);
-      this.authenticationService.angularFireAuth.authState.subscribe(userData => {
-        if(userData){
-          this.router.navigate(['view/home']);
-        }else {
-          this.error = 'Failed to login.';
-        }
+      this.authenticationService.SignIn(this.form.value.username, this.form.value.password).subscribe(res => {
+        this.authenticationService.angularFireAuth.authState.subscribe(userData => {
+          if (userData) {
+            this.router.navigate(['view/home']);
+          } else {
+            this.error = 'Failed to login.';
+          }
+        })
       })
     } else {
       this.error = 'Username or password invalid';
