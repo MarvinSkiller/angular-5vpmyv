@@ -19,6 +19,7 @@ import { MainMenuComponent } from './template/main-menu/main-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthenticationService } from './sevices/authentication.service';
 import { AuthGuard } from './core/auth.guard';
+import { RegisterMemberComponent } from './view/register-member/register-member.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AuthGuard } from './core/auth.guard';
     HomeComponent,
     LoginComponent,
     MainMenuComponent,
+    RegisterMemberComponent,
   ],
   imports: [
     BrowserModule,
