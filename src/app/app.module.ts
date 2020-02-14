@@ -6,6 +6,8 @@ import { MaterialModule } from './core/material.module';
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthenticationService } from './sevices/authentication.service';
 import { AuthGuard } from './core/auth.guard';
 import { RegisterMemberComponent } from './view/register-member/register-member.component';
+import { MemberService } from './sevices/member.service';
 
 @NgModule({
   declarations: [
@@ -39,9 +42,10 @@ import { RegisterMemberComponent } from './view/register-member/register-member.
     MaterialModule,
     ReactiveFormsModule,
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
-  providers: [AuthenticationService, AuthGuard],
+  providers: [AuthenticationService, AuthGuard, MemberService, AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
