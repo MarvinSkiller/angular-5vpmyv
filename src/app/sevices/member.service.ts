@@ -15,7 +15,7 @@ export class MemberService {
   }
 
   createNewMember(memberData: any){
-    return this.memberCollection.doc(memberData.memberId).set({});
+    return this.memberCollection.doc(memberData.memberId).set(memberData);
   }
 
   getMemberById(memberId: string){

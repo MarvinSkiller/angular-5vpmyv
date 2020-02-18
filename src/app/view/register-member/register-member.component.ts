@@ -1,7 +1,9 @@
 import { Input, Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MemberService } from '../../sevices/member.service';
-import { Member } from '../../model/member.model'
+import { Member } from '../../model/member.model';
+import {MatSnackBar} from '@angular/material';
+import { MessageComponent } from '../message/message.component'
 
 
 @Component({
@@ -20,7 +22,8 @@ export class RegisterMemberComponent implements OnInit {
   });
 
   constructor(
-    public memberService : MemberService
+    public memberService : MemberService,
+    public snackBar: MatSnackBar
   ) { 
     this.memberService.getAllMember().subscribe(data => {
       this.members = data.map(e => {
@@ -39,13 +42,23 @@ export class RegisterMemberComponent implements OnInit {
       this.memberService.getMemberById(this.memberForm.value.memberId).subscribe(data => {
         if(!data.exists){
           this.memberService.createNewMember(this.memberForm.value).then(function(){
-            console.log('Successfully Added');
+            this.openMessage('Successfully Added.', '');
           }).catch(function(error){
-            console.log('Error ' + error);
+            this.openMessage('Error ' + error, '');
           });
+        }else {
+          this.openMessage(this.memberForm.value.memberId + 'Already register', '');
         }
       });
     }
+  }
+
+  openMessage(message: string, panelClass: string) {
+    this.snackBar.openFromComponent(MessageComponent, {
+      data: message,
+      panelClass: panelClass,
+      duration: 10000
+    });
   }
   
   @Input() error: string | null;

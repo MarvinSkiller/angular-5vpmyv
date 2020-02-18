@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from './core/material.module';
+import {MAT_SNACK_BAR_DATA} from '@angular/material';
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
@@ -23,6 +24,7 @@ import { AuthenticationService } from './sevices/authentication.service';
 import { AuthGuard } from './core/auth.guard';
 import { RegisterMemberComponent } from './view/register-member/register-member.component';
 import { MemberService } from './sevices/member.service';
+import { MessageComponent } from './view/message/message.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { MemberService } from './sevices/member.service';
     LoginComponent,
     MainMenuComponent,
     RegisterMemberComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,14 @@ import { MemberService } from './sevices/member.service';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule
   ],
-  providers: [AuthenticationService, AuthGuard, MemberService, AngularFirestore],
+  providers: [
+    AuthenticationService, 
+    AuthGuard, 
+    MemberService, 
+    AngularFirestore,
+    { provide: MAT_SNACK_BAR_DATA, useValue: {} }
+  ],
+  entryComponents: [MessageComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
