@@ -6,6 +6,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class MemberService {
 
+  memberCollection = this.firestore.collection('member-info');
+
   constructor(private firestore: AngularFirestore) { }
 
   getAllMember(){
@@ -13,7 +15,11 @@ export class MemberService {
   }
 
   createNewMember(memberData: any){
-    return this.firestore.collection('member-info').add(memberData);
+    return this.memberCollection.doc(memberData.memberId).set({});
+  }
+
+  getMemberById(memberId: string){
+    return this.memberCollection.doc(memberId).get();
   }
 
 }

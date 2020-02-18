@@ -36,8 +36,15 @@ export class RegisterMemberComponent implements OnInit {
   }
   submit() {
     if (this.memberForm.valid) {
-      console.log(this.memberForm.value);
-      this.memberService.createNewMember(this.memberForm.value);
+      this.memberService.getMemberById(this.memberForm.value.memberId).subscribe(data => {
+        if(!data.exists){
+          this.memberService.createNewMember(this.memberForm.value).then(function(){
+            console.log('Successfully Added');
+          }).catch(function(error){
+            console.log('Error ' + error);
+          });
+        }
+      });
     }
   }
   
