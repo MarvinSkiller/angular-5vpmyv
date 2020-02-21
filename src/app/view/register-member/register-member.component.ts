@@ -1,9 +1,10 @@
-import { Input, Component, OnInit } from '@angular/core';
+import { Input,Output, Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MemberService } from '../../sevices/member.service';
 import { Member } from '../../model/member.model';
 import {MatSnackBar} from '@angular/material';
-import { MessageComponent } from '../message/message.component'
+import { MessageComponent } from '../message/message.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -23,7 +24,8 @@ export class RegisterMemberComponent implements OnInit {
 
   constructor(
     public memberService : MemberService,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    public router: Router
   ) { 
     this.memberService.getAllMember().subscribe(data => {
       this.members = data.map(e => {
@@ -59,6 +61,14 @@ export class RegisterMemberComponent implements OnInit {
       panelClass: panelClass,
       duration: 10000
     });
+  }
+
+  @Output() memberParam: Member;
+
+  viewPayment(member: Member){
+    console.log(member)
+    this.memberParam = member;
+    this.router.navigate(['view/paymentHistory']);
   }
   
   @Input() error: string | null;

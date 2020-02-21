@@ -4,7 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './view/login/login.component';
 import { HomeComponent } from './view/home/home.component';
 import { MainTemplateComponent } from './template/main-template/main-template.component';
-import { RegisterMemberComponent } from './view/register-member/register-member.component'
+import { RegisterMemberComponent } from './view/register-member/register-member.component';
+import { PaymentComponent } from './view/payment/payment.component';
 
 import { AuthGuard } from './core/auth.guard';
 
@@ -28,6 +29,10 @@ const routes: Routes = [
       {
         path: 'addMember',
         component: RegisterMemberComponent
+      },
+      {
+        path: 'paymentHistory',
+        component: PaymentComponent
       }
     ],
     canActivate: [AuthGuard]

@@ -25,6 +25,7 @@ import { AuthGuard } from './core/auth.guard';
 import { RegisterMemberComponent } from './view/register-member/register-member.component';
 import { MemberService } from './sevices/member.service';
 import { MessageComponent } from './view/message/message.component';
+import { PaymentComponent } from './view/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MessageComponent } from './view/message/message.component';
     MainMenuComponent,
     RegisterMemberComponent,
     MessageComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,
