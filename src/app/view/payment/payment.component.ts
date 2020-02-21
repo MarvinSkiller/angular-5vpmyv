@@ -1,6 +1,7 @@
 import {Input, Component, OnInit } from '@angular/core';
 import { MessageComponent } from '../message/message.component';
-import { Member } from '../../model/member.model';
+import { Member } from '../../model/member.model';;
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-payment',
@@ -11,10 +12,12 @@ export class PaymentComponent implements OnInit {
 
   @Input() memberParam: Member;
 
-  constructor() { }
+  constructor(public router: Router,public activeRouter: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log(this.memberParam)
+    this.activeRouter.params.subscribe((member : Member) => {
+      this.memberParam = member;
+    });
   }
 
 }

@@ -66,9 +66,9 @@ export class RegisterMemberComponent implements OnInit {
   @Output() memberParam: Member;
 
   viewPayment(member: Member){
-    console.log(member)
+    console.log(member.id);
     this.memberParam = member;
-    this.router.navigate(['view/paymentHistory']);
+    this.router.navigate(['view/paymentHistory', member]);
   }
   
   @Input() error: string | null;
