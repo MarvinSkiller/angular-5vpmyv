@@ -3,13 +3,19 @@
   <mat-card-content>
     <table>
         <thead>
-          <th>Payment Date</th>
-          <th>Amount</th>
-          <th>End Date</th>
+          <tr>
+            <th>Amount</th>
+            <th>Payment Date</th>
+            <th>End Date</th>
+          </tr>
         </thead>
-      <tbody>
-        
-      </tbody>
+        <tbody>
+          <tr *ngFor="let payment of paymentHistory">
+            <td>{{ payment.amount }}</td>
+            <td>{{ payment.paymentDate.seconds * 1000 | date:'MM-dd-yyyy'  }}</td>
+            <td>{{ payment.endDate.seconds * 1000 | date:'MM-dd-yyyy'  }}</td>
+          </tr>
+        </tbody>
     </table>
   </mat-card-content>
 </mat-card>

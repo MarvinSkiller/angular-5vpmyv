@@ -26,6 +26,7 @@ import { RegisterMemberComponent } from './view/register-member/register-member.
 import { MemberService } from './sevices/member.service';
 import { MessageComponent } from './view/message/message.component';
 import { PaymentComponent } from './view/payment/payment.component';
+import { PaymentService } from './sevices/payment.service';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { PaymentComponent } from './view/payment/payment.component';
     AuthGuard, 
     MemberService, 
     AngularFirestore,
+    PaymentService,
     { provide: MAT_SNACK_BAR_DATA, useValue: {} }
   ],
   entryComponents: [MessageComponent],
