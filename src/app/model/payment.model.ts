@@ -1,5 +1,5 @@
 export class Payment {
-  amount: string;
+  amount: number;
   endDate: Date;
   paymentDate: Date;
 }

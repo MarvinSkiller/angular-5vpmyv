@@ -1,4 +1,5 @@
 import {Input, Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MessageComponent } from '../message/message.component';
 import { Member } from '../../model/member.model';;
 import { Router, ActivatedRoute } from '@angular/router';
@@ -17,6 +18,12 @@ export class PaymentComponent implements OnInit {
 
   paymentHistory: Payment[];
 
+  paymentForm: FormGroup = new FormGroup({
+    amount: new FormControl('',[Validators.required]),
+    endDate: new FormControl('',[Validators.required]),
+    paymentDate: new FormControl('', [Validators.required])
+  });
+
   constructor(
     public router: Router,
     public activeRouter: ActivatedRoute,
@@ -34,6 +41,10 @@ export class PaymentComponent implements OnInit {
         })
       })
     });
+  }
+
+  submit(){
+    console.log(this.paymentForm.value)
   }
 
 }
