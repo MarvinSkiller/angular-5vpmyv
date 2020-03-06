@@ -1,63 +1,24 @@
-
-<mat-card *ngFor="let member of members">
-	<mat-card-title>{{member.name}}</mat-card-title>
+<mat-card>
+	<mat-card-title>Member List</mat-card-title>
   <mat-card-content>
-    <table >
-      <tbody>
-        <tr>
-          <td>အသင်းဝင်အမှတ်</td>
-          <td>{{member.memberId}}</td>
-        </tr>
-        <tr>
-          <td>ၸိုဝ်ႈ/အမည်</td>
-          <td>{{member.name}}</td>
-        </tr>
-        <tr>
-          <td>ဝၼၼ်းၵိူတ်ႇ/မွေးသက္ကရာဇ်</td>
-          <td>{{member.dateOfBirth}}</td>
-        </tr>
-        <tr>
-          <td>ဢႃႇယူႉ/အသက်</td>
-          <td>{{member.age}}</td>
-        </tr>
-        <tr>
-          <td>တီႈၵိူတ်ႇ/မွေးရပ်ဇာတိ</td>
-          <td>{{member.placeOfBirth}}</td>
-        </tr>
-        <tr>
-          <td>ၽႃႇသႃႇၵိူဝ်းယမ်/ကိုးကွယ်သည့်ဘာသာ</td>
-          <td>{{member.religion}}</td>
-        </tr>
-        <tr>
-          <td>မၢႆၽၢင်/မှတ်ပုံတင်အမှတ်</td>
-          <td>{{member.nrcNo}}</td>
-        </tr>
-        <tr>
-          <td>ၸၼ်ႉပၢႆးပိင်ႇၺႃႇ/ပညာအရည်အချင်း</td>
-          <td>{{member.education}}</td>
-        </tr>
-        <tr>
-          <td>ၵၢၼ်ငၢၼ်း/အလုပ်အကိုင်</td>
-          <td>{{member.occupation}}</td>
-        </tr>
-        <tr>
-          <td>ၸိုဝ်ႈပေႃႈမႄႈ/မိဘအမည်</td>
-          <td>{{member.parentName}}</td>
-        </tr>
-        <tr>
-          <td>မၢႆၾူၼ်း/တယ်လီဖုန်းနံပါတ်</td>
-          <td>{{member.phoneNo}}</td>
-        </tr>
-        <tr>
-          <td>တီႈယူႇ/လိပ်စာအပြည့်အစုံ</td>
-          <td>{{member.address}}</td>
-        </tr>
-        <tr>
-          <td>
-              <!-- <button (click)="viewPayment(member)" mat-raised-button color="accent">Payment History</button> -->
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="example-container mat-elevation-z8">
+        <mat-table [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="အသင်းဝင်အမှတ်">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> အသင်းဝင်အမှတ် </mat-header-cell>
+            <mat-cell *matCellDef="let row" data-label="အသင်းဝင်အမှတ်"> {{row.memberId}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="ၸိုဝ်ႈ/အမည်">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> ၸိုဝ်ႈ/အမည် </mat-header-cell>
+            <mat-cell *matCellDef="let row" data-label="ၸိုဝ်ႈ/အမည်"> {{row.name}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="ၸိၢႆၾူၼ်း/တယ်လီဖုန်းနံပါတ်">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> ၸၢႆၾူၼ်း/တယ်လီဖုန်းနံပါတ် </mat-header-cell>
+            <mat-cell *matCellDef="let row" data-label="ၸၢႆၾူၼ်း/တယ်လီဖုန်းနံပါတ်"> {{row.phoneNo}} </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;">
+          </mat-row>
+        </mat-table>
+      </div>
   </mat-card-content>
 </mat-card>
