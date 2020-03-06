@@ -1,33 +1,81 @@
 <mat-card>
-	<mat-card-title>Register New Member</mat-card-title>
+	<mat-card-title class="card-Header">အသင်းဝင်လျှောက်လွှာ</mat-card-title>
 	<mat-card-content>
-    <form [formGroup]="memberForm" (ngSubmit)="submit()">
+    <form [formGroup]="memberForm" (ngSubmit)="submit()" >
 			<p>
 				<mat-form-field>
-					<input type="text" matInput placeholder="Member Id" required formControlName="memberId">
+					<input type="text" matInput placeholder="အသင်းဝင်အမှတ်" required formControlName="memberId">
 				</mat-form-field>
 			</p>
 
 			<p>
 				<mat-form-field>
-					<input type="text" matInput placeholder="Name" required formControlName="name">
-				</mat-form-field>
-			</p>
-
-      <p>
-				<mat-form-field>
-					<input type="text" matInput placeholder="Father Name" required formControlName="fatherName">
+					<input type="text" matInput placeholder="ၸိုဝ်ႈ/အမည်" required formControlName="name">
 				</mat-form-field>
 			</p>
 
       <p>
         <mat-form-field>
-          <mat-label>Date Of Birth</mat-label>
+          <mat-label>ဝၼၼ်းၵိူတ်ႇ/မွေးသက္ကရာဇ်</mat-label>
           <input matInput [matDatepicker]="dob" required formControlName="dateOfBirth">
           <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
           <mat-datepicker #dob></mat-datepicker>
         </mat-form-field>
       </p>
+
+      <p>
+				<mat-form-field>
+					<input type="number" matInput placeholder="ဢႃႇယူႉ/အသက်" required>
+				</mat-form-field>
+			</p>
+
+      <p>
+				<mat-form-field>
+					<input type="text" matInput placeholder="တီႈၵိူတ်ႇ/မွေးရပ်ဇာတိ" required>
+				</mat-form-field>
+			</p>
+
+      <p>
+				<mat-form-field>
+					<input type="text" matInput placeholder="ၽႃႇသႃႇၵိူဝ်းယမ်/ကိုးကွယ်သည့်ဘာသာ" required>
+				</mat-form-field>
+			</p>
+
+      <p>
+				<mat-form-field>
+					<input type="text" matInput placeholder="မၢႆၽၢင်/မှတ်ပုံတင်အမှတ်" required>
+				</mat-form-field>
+			</p>
+
+      <p>
+				<mat-form-field>
+					<input type="text" matInput placeholder="ၸၼ်ႉပၢႆးပိင်ႇၺႃႇ/ပညာအရည်အချင်း" required>
+				</mat-form-field>
+			</p>
+
+      <p>
+				<mat-form-field>
+					<input type="text" matInput placeholder="ၵၢၼ်ငၢၼ်း/အလုပ်အကိုင်" required>
+				</mat-form-field>
+			</p>
+
+      <p>
+				<mat-form-field>
+					<input type="text" matInput placeholder="ၸိုဝ်ႈပေႃႈမႄႈ/မိဘအမည်" required formControlName="fatherName">
+				</mat-form-field>
+			</p>
+
+      <p>
+				<mat-form-field>
+					<input type="text" matInput placeholder="တီႈယူႇ/လိပ်စာအပြည့်အစုံ" required formControlName="fatherName">
+				</mat-form-field>
+			</p>
+
+      <p>
+				<mat-form-field>
+					<input type="text" matInput placeholder="မၢႆၾူၼ်း/တယ်လီဖုန်းနံပါတ်" required formControlName="fatherName">
+				</mat-form-field>
+			</p>
 
 			<p *ngIf="error" class="error">
 				{{ error }}
