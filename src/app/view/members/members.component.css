@@ -1,0 +1,17 @@
+      mat-card {
+        width: 50%;
+        justify-content: center;
+      }
+
+      mat-card-title,
+      mat-card-content {
+        display: flex;
+        justify-content: center;
+        border: solid gray 1px;
+        border-radius: 5px; 
+      }
+
+      .mat-card-title {
+        background-color: #007bff!important;
+        color: white;
+      }
