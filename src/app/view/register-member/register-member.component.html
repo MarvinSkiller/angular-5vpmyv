@@ -1,90 +1,78 @@
 <mat-card>
 	<mat-card-title class="card-Header">အသင်းဝင်လျှောက်လွှာ</mat-card-title>
 	<mat-card-content>
-    <form [formGroup]="memberForm" (ngSubmit)="submit()" >
-			<p>
-				<mat-form-field>
-					<input type="text" matInput placeholder="အသင်းဝင်အမှတ်" required formControlName="memberId">
+    <form fxLayout="column" [formGroup]="memberForm" (ngSubmit)="submit()" >
+      <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+          <mat-form-field fxFlex>
+            <input type="text" matInput placeholder="အသင်းဝင်အမှတ်" required formControlName="memberId">
+          </mat-form-field>
+
+          <mat-form-field fxFlex>
+            <input type="text" matInput placeholder="ၸိုဝ်ႈ/အမည်" required formControlName="name">
+          </mat-form-field>
+
+          <mat-form-field fxFlex>
+            <mat-label>ဝၼၼ်းၵိူတ်ႇ/မွေးသက္ကရာဇ်</mat-label>
+            <input matInput [matDatepicker]="dob" required formControlName="dateOfBirth">
+            <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+            <mat-datepicker #dob></mat-datepicker>
+          </mat-form-field>
+      </div>
+
+      <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+				<mat-form-field fxFlex>
+					<input type="text" matInput formControlName="age" placeholder="ဢႃႇယူႉ/အသက်" required>
 				</mat-form-field>
-			</p>
-
-			<p>
-				<mat-form-field>
-					<input type="text" matInput placeholder="ၸိုဝ်ႈ/အမည်" required formControlName="name">
+			
+				<mat-form-field fxFlex>
+					<input type="text" matInput formControlName="placeOfBirth" placeholder="တီႈၵိူတ်ႇ/မွေးရပ်ဇာတိ" required>
 				</mat-form-field>
-			</p>
-
-      <p>
-        <mat-form-field>
-          <mat-label>ဝၼၼ်းၵိူတ်ႇ/မွေးသက္ကရာဇ်</mat-label>
-          <input matInput [matDatepicker]="dob" required formControlName="dateOfBirth">
-          <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
-          <mat-datepicker #dob></mat-datepicker>
-        </mat-form-field>
-      </p>
-
-      <p>
-				<mat-form-field>
-					<input type="text" matInput placeholder="ဢႃႇယူႉ/အသက်" required>
+			
+				<mat-form-field fxFlex>
+					<input type="text" matInput formControlName="religion" placeholder="ၽႃႇသႃႇၵိူဝ်းယမ်/ကိုးကွယ်သည့်ဘာသာ" required>
 				</mat-form-field>
-			</p>
+      </div>
 
-      <p>
-				<mat-form-field>
-					<input type="text" matInput placeholder="တီႈၵိူတ်ႇ/မွေးရပ်ဇာတိ" required>
+      <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+				<mat-form-field fxFlex>
+					<input type="text" matInput formControlName="nrcNo" placeholder="မၢႆၽၢင်/မှတ်ပုံတင်အမှတ်" required>
 				</mat-form-field>
-			</p>
-
-      <p>
-				<mat-form-field>
-					<input type="text" matInput placeholder="ၽႃႇသႃႇၵိူဝ်းယမ်/ကိုးကွယ်သည့်ဘာသာ" required>
+			
+				<mat-form-field fxFlex>
+					<input type="text" matInput formControlName="education" placeholder="ၸၼ်ႉပၢႆးပိင်ႇၺႃႇ/ပညာအရည်အချင်း" required>
 				</mat-form-field>
-			</p>
-
-      <p>
-				<mat-form-field>
-					<input type="text" matInput placeholder="မၢႆၽၢင်/မှတ်ပုံတင်အမှတ်" required>
+			
+				<mat-form-field fxFlex>
+					<input type="text" matInput formControlName="occupation" placeholder="ၵၢၼ်ငၢၼ်း/အလုပ်အကိုင်" required>
 				</mat-form-field>
-			</p>
+      </div>
 
-      <p>
-				<mat-form-field>
-					<input type="text" matInput placeholder="ၸၼ်ႉပၢႆးပိင်ႇၺႃႇ/ပညာအရည်အချင်း" required>
+      <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+				<mat-form-field fxFlex>
+					<input type="text" matInput formControlName="parentName" placeholder="ၸိုဝ်ႈပေႃႈမႄႈ/မိဘအမည်" required>
 				</mat-form-field>
-			</p>
-
-      <p>
-				<mat-form-field>
-					<input type="text" matInput placeholder="ၵၢၼ်ငၢၼ်း/အလုပ်အကိုင်" required>
+			
+				<mat-form-field fxFlex>
+					<input type="text" matInput placeholder="မၢႆၾူၼ်း/တယ်လီဖုန်းနံပါတ်" required formControlName="phoneNo">
 				</mat-form-field>
-			</p>
 
-      <p>
-				<mat-form-field>
-					<input type="text" matInput placeholder="ၸိုဝ်ႈပေႃႈမႄႈ/မိဘအမည်" required formControlName="fatherName">
+				<mat-form-field fxFlex>
+					<textarea type="text" matInput formControlName="address" placeholder="တီႈယူႇ/လိပ်စာအပြည့်အစုံ" required></textarea>
 				</mat-form-field>
-			</p>
+      </div>
 
-      <p>
-				<mat-form-field>
-					<textarea type="text" matInput placeholder="တီႈယူႇ/လိပ်စာအပြည့်အစုံ" required formControlName="fatherName"></textarea>
-				</mat-form-field>
-			</p>
+      <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+        <p *ngIf="error" class="error">
+          {{ error }}
+        </p>
+      </div>
 
-      <p>
-				<mat-form-field>
-					<input type="text" matInput placeholder="မၢႆၾူၼ်း/တယ်လီဖုန်းနံပါတ်" required formControlName="fatherName">
-				</mat-form-field>
-			</p>
-
-			<p *ngIf="error" class="error">
-				{{ error }}
-			</p>
-
-			<div class="button">
-				<button type="submit" color="primary" mat-raised-button>Register</button>
-			</div>
-
+      <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+        <div class="button">
+          <button type="submit" color="primary" mat-raised-button>Register</button>
+        </div>
+      </div>
+      
 		</form>
   </mat-card-content>
 </mat-card>

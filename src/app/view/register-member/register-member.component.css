@@ -3,9 +3,14 @@
         margin: 100px 0px;
       }
 
-      .mat-form-field {
+      form {
+       width: 100%;
+       padding : 30px;
+      }
+
+      mat-form-field {
+        padding: 5px;
         width: 100%;
-        min-width: 300px;
       }
 
       mat-card-title,

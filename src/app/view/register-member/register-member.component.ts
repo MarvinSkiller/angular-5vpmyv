@@ -17,8 +17,16 @@ export class RegisterMemberComponent implements OnInit {
   memberForm:  FormGroup = new FormGroup({
     memberId: new FormControl('',[Validators.required]),
     name: new FormControl('',[Validators.required]),
-    fatherName: new FormControl('',[Validators.required]),
-    dateOfBirth: new FormControl('', [Validators.required])
+    dateOfBirth: new FormControl('', [Validators.required]),
+    age: new FormControl('',[Validators.required]),
+    placeOfBirth: new FormControl('',[Validators.required]),
+    religion: new FormControl('',[Validators.required]),
+    nrcNo: new FormControl('',[Validators.required]),
+    education: new FormControl('',[Validators.required]),
+    occupation: new FormControl('',[Validators.required]),
+    parentName: new FormControl('',[Validators.required]),
+    address: new FormControl('',[Validators.required]),
+    phoneNo: new FormControl('',[Validators.required])
   });
 
   constructor(
@@ -37,6 +45,7 @@ export class RegisterMemberComponent implements OnInit {
           this.memberService.createNewMember(this.memberForm.value).then(function(){
             this.openMessage('Successfully Added.', '');
           }).catch(function(error){
+            console.log(error)
             this.openMessage('Error ' + error, '');
           });
         }else {

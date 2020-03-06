@@ -33,7 +33,7 @@ export class MembersComponent implements OnInit {
   @Output() memberParam: Member;
 
   viewPayment(member: Member){
-    console.log(member.id);
+    console.log(member);
     this.memberParam = member;
     this.router.navigate(['view/paymentHistory', member]);
   }
