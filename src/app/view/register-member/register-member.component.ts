@@ -14,27 +14,18 @@ import { Router } from '@angular/router';
 })
 export class RegisterMemberComponent implements OnInit {
 
-  members: Member[];
-
   memberForm:  FormGroup = new FormGroup({
     memberId: new FormControl('',[Validators.required]),
     name: new FormControl('',[Validators.required]),
-    fatherName: new FormControl('',[Validators.required])
+    fatherName: new FormControl('',[Validators.required]),
+    dateOfBirth: new FormControl('', [Validators.required])
   });
 
   constructor(
     public memberService : MemberService,
     public snackBar: MatSnackBar,
     public router: Router
-  ) { 
-    this.memberService.getAllMember().subscribe(data => {
-      this.members = data.map(e => {
-        return {
-          id: e.payload.doc.id,
-          ...e.payload.doc.data()
-        } as Member;
-      })
-    });
+  ) {
   }
 
   ngOnInit() {
@@ -61,14 +52,6 @@ export class RegisterMemberComponent implements OnInit {
       panelClass: panelClass,
       duration: 10000
     });
-  }
-
-  @Output() memberParam: Member;
-
-  viewPayment(member: Member){
-    console.log(member.id);
-    this.memberParam = member;
-    this.router.navigate(['view/paymentHistory', member]);
   }
   
   @Input() error: string | null;

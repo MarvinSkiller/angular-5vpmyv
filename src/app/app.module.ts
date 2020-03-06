@@ -27,6 +27,7 @@ import { MemberService } from './sevices/member.service';
 import { MessageComponent } from './view/message/message.component';
 import { PaymentComponent } from './view/payment/payment.component';
 import { PaymentService } from './sevices/payment.service';
+import { MembersComponent } from './view/members/members.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { PaymentService } from './sevices/payment.service';
     RegisterMemberComponent,
     MessageComponent,
     PaymentComponent,
+    MembersComponent,
   ],
   imports: [
     BrowserModule,

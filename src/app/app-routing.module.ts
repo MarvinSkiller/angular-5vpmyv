@@ -6,6 +6,7 @@ import { HomeComponent } from './view/home/home.component';
 import { MainTemplateComponent } from './template/main-template/main-template.component';
 import { RegisterMemberComponent } from './view/register-member/register-member.component';
 import { PaymentComponent } from './view/payment/payment.component';
+import { MembersComponent } from './view/members/members.component';
 
 import { AuthGuard } from './core/auth.guard';
 
@@ -33,6 +34,10 @@ const routes: Routes = [
       {
         path: 'paymentHistory',
         component: PaymentComponent
+      },
+      {
+        path: 'members',
+        component: MembersComponent
       }
     ],
     canActivate: [AuthGuard]
