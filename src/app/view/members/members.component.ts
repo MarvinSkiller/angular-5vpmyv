@@ -13,7 +13,7 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 export class MembersComponent implements OnInit {
 
   // displayedColumns = ['အသင်းဝင်အမှတ်','ၸိုဝ်ႈ/အမည်', 'ၸိဝၼၼ်းၵိူတ်ႇ/မွေးသက္ကရာဇ်', 'ဢႃႇယူႉ/အသက်', 'တီႈၵိူတ်ႇ/မွေးရပ်ဇာတိ', 'ၽႃႇသႃႇၵိူဝ်းယမ်/ကိုးကွယ်သည့်ဘာသာ', 'မၢႆၽၢင်/မှတ်ပုံတင်အမှတ်', 'ၸၼ်ႉပၢႆးပိင်ႇၺႃႇ/ပညာအရည်အချင်း', 'ၵၢၼ်ငၢၼ်း/အလုပ်အကိုင်', 'ၸိုဝ်ႈပေႃႈမႄႈ/မိဘအမည်', 'ၸိၢႆၾူၼ်း/တယ်လီဖုန်းနံပါတ်', 'တီႈယူႇ/လိပ်စာအပြည့်အစုံ'];
-  displayedColumns = ['အသင်းဝင်အမှတ်','ၸိုဝ်ႈ/အမည်', 'ၸိၢႆၾူၼ်း/တယ်လီဖုန်းနံပါတ်'];
+  displayedColumns = ['အသင်းဝင်အမှတ်','ၸိုဝ်ႈ/အမည်', 'ၸိၢႆၾူၼ်း/တယ်လီဖုန်းနံပါတ်', 'Detail'];
   dataSource: MatTableDataSource<Member>;
 
   members: Member[];
@@ -38,11 +38,10 @@ export class MembersComponent implements OnInit {
   }
 
   @ViewChild(MatSort) sort: MatSort;
-  @Output() memberParam: Member;
+  @Output() memberParam: string;
 
   viewPayment(member: Member){
-    console.log(member);
-    this.memberParam = member;
+    this.memberParam = member.id;
     this.router.navigate(['view/paymentHistory', member]);
   }
 
