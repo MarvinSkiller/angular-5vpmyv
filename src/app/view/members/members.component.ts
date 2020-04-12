@@ -40,7 +40,7 @@ export class MembersComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @Output() memberParam: string;
 
-  viewPayment(member: Member){
+  viewDetail(member: Member){
     this.memberParam = member.id;
     this.router.navigate(['view/paymentHistory', member]);
   }

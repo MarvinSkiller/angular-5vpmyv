@@ -13,13 +13,11 @@
             <mat-header-cell *matHeaderCellDef mat-sort-header> ၸၢႆၾူၼ်း/တယ်လီဖုန်းနံပါတ် </mat-header-cell>
             <mat-cell *matCellDef="let row" data-label="ၸၢႆၾူၼ်း/တယ်လီဖုန်းနံပါတ်"> {{row.phoneNo}} </mat-cell>
           </ng-container>
-          <ng-container matColumnDef="ၸိၢႆၾူၼ်း/တယ်လီဖုန်းနံပါတ်">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> ၸၢႆၾူၼ်း/တယ်လီဖုန်းနံပါတ် </mat-header-cell>
-            <mat-cell *matCellDef="let row" data-label="ၸၢႆၾူၼ်း/တယ်လီဖုန်းနံပါတ်"> {{row.phoneNo}} </mat-cell>
-          </ng-container>
           <ng-container matColumnDef="Detail">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Detail </mat-header-cell>
-            <mat-cell *matCellDef="let row" data-label="Detail"> Detail </mat-cell>
+            <mat-cell *matCellDef="let row" data-label="Detail"> 
+              <button mat-button color="primary" (click)="viewDetail(row)" >View Detail</button>
+            </mat-cell>
           </ng-container>
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; columns: displayedColumns;">
